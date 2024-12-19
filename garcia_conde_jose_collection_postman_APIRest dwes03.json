@@ -1,0 +1,156 @@
+{
+    "info": {
+        "_postman_id": "dba6b8c5-959a-4a75-ba55-b455ab823715",
+        "name": "Guía de Consultas HTTP APIRest Incidencias - dwes03",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "En este archivo encontrarás las consultas HTTP básicas necesarias para completar la Tarea Evaluativa 2 de la Unidad Didáctica 3 de DWES. Esta API Rest esta basada en una aplicación de *Incidencias*, en la que podrás realizar operaciones CRUD sobre las incidencias de una empresa.\n\n🔍 **¿Qué puedes hacer con esta coleccion?**  \nCon esta colección, podrás ejecutar las operaciones básicas de un sistema REST para gestionar Incidencias de una empresa. Entre las operaciones disponibles, encontrarás:\n\n1. **Recuperar la información de todas las incidencias**: Verás la lista completa de incidencias que se han genrado en la empresa.\n    \n2. **Consultar una incidencia específica por su ID**: Obtendrás los detalles de una incidencia concreta.\n    \n3. **Insertar una nueva incidencia**: Podrás añadir una nueva incidencia a la base de datos de Incidencias.\n    \n4. **Modificar una incidencia existente**: Actualiza el contenido de una incidencia.\n    \n5. **Eliminar un post**: Elimina una incidencia de la Base de Datos de forma definitiva.\n    \n\n🌟 **Estructura del Ejemplo**  \nCada operación de esta plantilla cuenta con instrucciones detalladas y ejemplos de cómo enviar y recibir los datos en formato JSON. Solo necesitas hacer clic en **Send** en cada solicitud para ejecutarla y ver los resultados en tiempo real.\n\n💡 **Consejo**: Usa el archivo para familiarizarte con las consultas que deberás implementar y personalizar en tu propio servicio en la tarea evaluativa. Cada solicitud incluye una descripción paso a paso para ayudarte a entender cómo funcionan las operaciones CRUD en una API RESTful."
+    },
+    "item": [
+        {
+            "name": "1: Recibir todas las incidencias - getAll",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost/DWES03/api/v2/public/post/get",
+                    "path": [
+                        "DWES03",
+                        "api",
+                        "v2",
+                        "public",
+                        "post",
+                        "get"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "XDEBUG_SESSION",
+                        "value": "1"
+                    }
+                ],
+                "description": "Esta solicitud GET obtiene una lista de todos las incidencias disponibles en el sistema.\n\n**Caso de uso:** Al pulsar enviar debería devolver la información de todas las incidencias disponibles, En caso de error devolvera codigos 404 o 500"
+
+            }
+        },
+        {
+            "name": "2: Recibir una incidencia por su id - getById",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost/DWES03/api/v2/public/post/get/04",
+                    "path": [
+                        "DWES03",
+                        "api",
+                        "v2",
+                        "public",
+                        "post",
+                        "get",
+                        "04"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ]
+                },
+                "description": "Esta solicitud GET obtendría una incidencia específica basado en su ID.\n\n**Caso de uso:** Si se cambia el valor de `{{id}}` en la URL al ID de la incidencia que quieres consultar y debería devolver los detalles de esta incidencia en concreto. Si no lo encuentra dara error 406"
+            }
+        },
+        {
+            "name": "3: Crear incidencia nueva - createIncidencia",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost/DWES03/api/v2/public/post/create",
+                    "path": [
+                        "DWES03",
+                        "api",
+                        "v2",
+                        "public",
+                        "post",
+                        "create"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ]
+                },
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"id\":\"8\",\n  \"trabajador\":\"Txema\",\n  \"hora\":\"13:00\",\n  \"instalacion\":\"biometanizacion\",\n  \"descripcion\":\"Foco fundido\"\n}"
+                },
+                "description": "Esta solicitud POST crearía una nueva incidencia en el sistema.\n\n**Caso de uso:** En este caso, en el cuerpo de la solicitud se recibiría un JSON con los campos 'id', 'trabajador', 'hora', 'instalacion', 'descripcion' que contendrían los datos necesarios para crear una nueva incidencia que se quier modificar. Si no se consigue crear generaria el error 500"
+            
+            }
+        },
+        {
+            "name": "4: Actualizar incidencia por su id - updateIncidencia",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost/DWES03/api/v2/public/post/update/08",
+                    "path": [
+                        "DWES03",
+                        "api",
+                        "v2",
+                        "public",
+                        "post",
+                        "update",
+                        "08"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ]
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"trabajador\":\"Pedro\",\n  \"hora\":\"00:00\",\n  \"instalacion\":\"biometanizacion\",\n  \"descripcion\":\"Cilindro r4 roto\"\n}"
+                },
+                "description": "Esta solicitud PUT actualiza una incidencia existente en el sistema basándose en su ID.\n\n**Caso de uso:** Si se cambia el valor de `{{id}}` al ID de la incidencia que quieres actualizar, editando 'id', 'trabajador', 'hora', 'instalacion', 'descripcion' en el cuerpo de la solicitud con los valores nuevosse modificaría el contenido de esta incidencia concreto. En caso de que no encuentre la incidencia generaria un error 406"
+            
+            }
+        },
+        {
+            "name": "5: Borrar incidencia por su id - deleteIncidencia",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost/DWES03/api/v2/public/post/delete/8",
+                    "path": [
+                        "DWES03",
+                        "api",
+                        "v2",
+                        "public",
+                        "post",
+                        "delete",
+                        "8"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "description": "Esta solicitud DELETE elimina una incidencia específica de la base de datos por su ID.\n\n**Caso de uso:** Si se cambia el valor de `{{id}}` al ID de la incidencia que quieres eliminar, este se eliminaría al recibir y procesar la solicitud. En caso de no encontrar dicha incidencia generara un error con codigo 406"    
+                }
+            }
+        }
+    ]
+}

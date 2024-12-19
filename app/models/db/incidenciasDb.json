@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "trabajador": "txema",
+        "hora": "12:00",
+        "instalacion": "maduraci\u00f3n",
+        "descripcion": "foco fundido"
+    },
+    {
+        "id": 2,
+        "trabajador": "juan",
+        "hora": "12:30",
+        "instalacion": "recepcion",
+        "descripcion": "puerta entrada rota"
+    },
+    {
+        "id": 3,
+        "trabajador": "Txema",
+        "hora": "13:00",
+        "instalacion": "biometanizacion",
+        "descripcion": "Cilindro r4 roto"
+    },
+    {
+        "id": 4,
+        "trabajador": "txema",
+        "hora": "09:30",
+        "instalacion": "trincheras",
+        "descripcion": "cinta rodillo roto"
+    },
+    {
+        "id": 5,
+        "trabajador": "pedro",
+        "hora": "23:00",
+        "instalacion": "pretratamiento",
+        "descripcion": "cinta 106 babero roto"
+    },
+    {
+        "id": 6,
+        "trabajador": "juan",
+        "hora": "17:00",
+        "instalacion": "prensa rechazos",
+        "descripcion": "aguja rota"
+    },
+    {
+        "id": 7,
+        "trabajador": "txema",
+        "hora": "03:00",
+        "instalacion": "exteriores",
+        "descripcion": "foco fundido parking"
+    }
+]

@@ -15,14 +15,18 @@ class Router{
 
     public function matchRoutes($url){
         foreach($this->routes as $route => $params){
-            $pattern = str_replace(['{id}', '/'], ['([0-9]+)'], '\/',$route);
-            $pattern = '/^'.$pattern.'$/';
+            $pattern = str_replace(['{id}', '/'], ['([0-9]+)', '\/'],$route);
+            $pattern = '/^' .$pattern. '$/';
 
-            if(preg_match($pattern, $url['path'])){
+            if(preg_match($pattern, $url['path'])){ 
                 $this->params = $params;
                 return true;
             }
         }
         return false;
+    }
+
+    public function getParams(){
+        return $this->params;
     }
 }
