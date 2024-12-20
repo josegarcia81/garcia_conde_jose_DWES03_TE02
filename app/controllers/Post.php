@@ -221,7 +221,7 @@ class Post{
                     unset($dbData[$id-1]);
                     // Llamada a funcion que guarda los cambios
                     $this->guardarDb($dbData);
-                    //print_r($dbData);
+                    return;
                 } 
                 
             }
