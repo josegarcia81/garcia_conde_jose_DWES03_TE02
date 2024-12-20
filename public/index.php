@@ -81,62 +81,6 @@ if (!empty($urlParams[2])){
     ]);
 }
 
-// // CARGA DE LA BASE DE DATOS //
-// ////////////////////////////////////////////////////////////////////
-// //$dirJson ="c:\\xampp\htdocs\DWES03\api\\v2\app\models\db\incidenciasDb.json";
-// $dirJson =__DIR__. "/../app/models/db/incidenciasDb.json";
-// //C:\xampp\htdocs\DWES03\api\v2\app\models\db  __DIR__ . '../app/models/db/incidenciasDb.json'
-// //echo __DIR__. "/api/v2/app/models/db/incidenciasDb.json";
-// //echo $dirJson;
-
-// // Control de errores //
-// if (!file_exists($dirJson)) {
-//     // Si el archivo no existe, devolver error 404
-//     http_response_code(404);
-//     echo json_encode([
-//         "status" => "error",
-//         "code" => 404,
-//         "message" => "La base de datos no esta disponible."
-//     ]);
-//     return;
-    
-// } elseif (file_get_contents($dirJson,true) === false) {
-//      // Si no se puede leer el archivo, devolver error 500
-//     http_response_code(500);
-//     echo json_encode([
-//         "status" => "error",
-//         "code" => 500,
-//         "message" => "No se pudo leer el archivo de datos."
-//     ]);
-//     return;
-// }
-
-// // leemos el archivo desde su directorio
-// $jsData = file_get_contents($dirJson,true);
-// // lo decodificamos
-// $jsData = json_decode($jsData,true);
-// // inicializar variable que va a contener el array con la base de datos
-// $dbData = [];
-
-// foreach ($jsData as $incidencia) {
-//     // Verificar si todas las claves necesarias existen
-    
-//         $id = (int)$incidencia["id"];
-//         $trabajador = $incidencia["trabajador"];
-//         $hora = $incidencia["hora"];
-//         $instalacion = $incidencia["instalacion"];
-//         $descripcion = $incidencia["descripcion"];
-
-//         // Crear un objeto Incidencia
-//         $incidenciaObj = new Incidencia($id, $trabajador, $hora, $instalacion, $descripcion);
-
-//         // Agregar el objeto al array $dbData
-//         array_push($dbData, $incidenciaObj);
-    
-// }
-
-// ///////////////////////////////////////////////////////////////////////
-
 // En funcion del RouteMatch filtramos el tipo de peticion y ejecutamos 
 // un metodo diferente de nuestro contolador Post.php
 if($router->matchRoutes($urlArray)){
